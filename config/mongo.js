@@ -1,3 +1,3 @@
 module.exports = {
-    db: '<db link here>'
+    db: 'mongodb://gift:080688Cl@ds029638.mongolab.com:29638/data-mine'
 };
