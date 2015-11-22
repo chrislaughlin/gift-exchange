@@ -53,7 +53,7 @@ app.use('/get-match', function(req, res) {
                 if (matchResults.length === 0) {
                     res.send('The email or password you provided did not match or the matches are not ready yet.');
                 } else {
-                    res.send('You have been matched with: ' + matchResults[0].matchedName + ' ' + matchResults[0].email);
+                    res.send('You have been matched with: Name - ' + matchResults[0].matchedName + ' Email - ' + matchResults[0].matchedEmail);
                 }
             })
         }
