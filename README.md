@@ -20,7 +20,7 @@ The application has three input areas:
 * The match retrieval area, allows users to get who they have been matched. The user will only get a match once the matches
 have been done via the admin panel.
 * The admin panel, this allows any admin (the admins must be added to the db). The admin has the ability to trigger the matches
-once the matches have been made the users can the obtain a match.
+once the matches have been made the users can the obtain a match. To access the admin panel add `?admin` to the end of the page url
 
 ### Setting up the database
 To use the application you first need to set up a mongodb instance and configure the instance in the application. This can be done
@@ -36,3 +36,5 @@ example of the admin user object.
     "password": "test123"
 }
 ```
+
+![main site](./assets/Screen Shot 2015-11-22 at 20.08.35.png)
