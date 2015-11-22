@@ -37,4 +37,13 @@ example of the admin user object.
 }
 ```
 
+### Running on production
+
+To run the application in production check put the code on the serve or move manually, ensure that all the node modules
+ have been installed and grunt is installed as a global module. Then on the server run:
+* grunt build
+* node server.js
+
+The application will be running under the same port as development.
+
 ![main site](./assets/Screen Shot 2015-11-22 at 20.08.35.png)
