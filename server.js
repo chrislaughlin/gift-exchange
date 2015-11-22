@@ -4,11 +4,28 @@ var path = require('path');
 var express = require('express');
 var mongoose = require('mongoose');
 var publicPath = __dirname + '/public';
+var Schema = mongoose.Schema;
+var SignupPerson = mongoose.Schema({
+    email: String,
+    name: String,
+    password: String
+});
+var SignUp = mongoose.model('gift-exchange-people', SignupPerson);
 //Express
 var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser.json() );       // to support JSON-encoded bodies
 app.use(express.static(publicPath));
-app.use('/sign-up', function(req, res) {
-    res.send('test sign-up');
+app.post('/sign-up', function(req, res) {
+    SignUp.find({email: req.body.email}, function(err, results) {
+        if (results.length > 0) {
+            res.send('That email address has already been used');
+        } else {
+            new SignUp({email: req.body.email, name: req.body.name, password: req.body.password}).save(function() {
+                res.send('You have been signed up, please check back later for your match');
+            });
+        }
+    });
 });
 
 app.use('/get-match', function(req, res) {

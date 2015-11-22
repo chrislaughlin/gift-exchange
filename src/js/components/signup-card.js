@@ -8,19 +8,27 @@ class Main extends React.Component {
     }
     signUp() {
         request
-            .get('/sign-up')
+            .post('/sign-up')
+            .set('Content-Type', 'application/json')
+            .send(JSON.stringify({
+                name: this.refs.name.getValue(),
+                email: this.refs.email.getValue(),
+                password: this.refs.password.getValue()
+            }))
             .end(this.signUpHandleRequest.bind(this));
     }
 
     signUpHandleRequest = (err, res) => {
-        if (!err) {
-            console.log(res);
-            this.setState({showDialogConfirm: true});
-        }
+        this.setState({returnMessage: res.text});
+        this.setState({showDialogConfirm: true});
     };
 
     closeDialog() {
         this.setState({showDialogConfirm: false});
+    }
+
+    renderResponceMessage() {
+        return <span>{this.state.returnMessage}</span>
     }
 
     render() {
@@ -33,16 +41,18 @@ class Main extends React.Component {
                     </CardText>
                     <CardActions>
                         <TextField
-                            hintText="Email" />
+                            hintText="Name" ref='name' />
+                        <TextField
+                            hintText="Email" ref='email' />
                         <TextField
                             hintText="Password"
-                            floatingLabelText="Password"
-                            type="password" />
+                            type="password"
+                            ref='password'/>
                     </CardActions>
                     <RaisedButton label="SignUp" secondary={true}  onClick={this.signUp.bind(this)}/>
                 </Card>
                 <Dialog
-                    title="You have been signed up, please check back later for your match"
+                    title={this.state.returnMessage}
                     open={this.state.showDialogConfirm}>
                     <RaisedButton label="Okay" primary={true}  onClick={this.closeDialog.bind(this)}/>
                 </Dialog>
