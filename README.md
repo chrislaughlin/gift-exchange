@@ -1,32 +1,38 @@
-# React Flux(Alt) Stater with Webpack
+# Gift Exchange
 
-A [Reactjs](https://facebook.github.io/react/), Flux([alt.js](http://alt.js.org/)) and [webpack](https://webpack.github.io/)
-starter kick. A great simple app that shows the starting point of creating a application or component in React. This
-starter shows the basic use of react components, bundling a react application into a amd module, using flux for updating
-data and making REST calls to the server and rendering [marionette](http://marionettejs.com) views with a react component.
+A gift exchange (secret santa) application built with [ReactJS](https://facebook.github.io/react/) with [Material-UI](http://material-ui.com/#/)
+for the client side and [NodeJS](https://nodejs.org/en/) with [Mongoose](http://mongoosejs.com/) for the server.
+Grunt and Webpack are used for the building and running of the application.
 
-## Installing
+## Install
 
-**You must be running on Node 4.0 or higher** you can install/update to the latest stable version of node using [n](https://www.npmjs.com/package/n).
+Install the needed npm packages and build the local development version:
+* `npm i`
+* `npm i grunt -g`
+* `grunt dev`
 
-### Install all the node packages:
+Open the application [http://localhost:8081](http://localhost:8081)
+
+### Using the application
+
+The application has three input areas:
+* The sign up area, allows users tro register for the gift exchange.
+* The match retrieval area, allows users to get who they have been matched. The user will only get a match once the matches
+have been done via the admin panel.
+* The admin panel, this allows any admin (the admins must be added to the db). The admin has the ability to trigger the matches
+once the matches have been made the users can the obtain a match.
+
+### Setting up the database
+To use the application you first need to set up a mongodb instance and configure the instance in the application. This can be done
+in `config/mongo.js`. Once configured you will need to add one admin to the gift-exchange-admins collection. Below is an
+example of the admin user object.
 
 ```
-npm install
+{
+    "_id": {
+        "$oid": "5651f54ae4b06d0088f91fd1"
+    },
+    "email": "admin@email.com",
+    "password": "test123"
+}
 ```
-
-### Install Grunt
-
-```
-sudo npm i grunt-cli -g
-```
-
-### Run the application
-Grunt dev will run check styles on both jscs and elint, start a mini express server for serving up mock data and then
-run [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html).
-
-```
-grunt dev
-```
-### Visit the app
-Open http://localhost:8081/
