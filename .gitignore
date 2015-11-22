@@ -26,8 +26,8 @@ nohup.out
 .idea
 
 # Built files
-dist
 public
+public/index.html
 
 # React temp
 tmp

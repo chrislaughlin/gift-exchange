@@ -19,7 +19,7 @@ module.exports = {
     output: {
         chunkFilename:"[chunkhash].example.min.js",
         filename: "example.min.js",
-        path: path.join(__dirname, "/dist/js"),
+        path: path.join(__dirname, "/public"),
         libraryTarget: 'amd',
         umdNamedDefine: true,
         library: 'Example',

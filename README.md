@@ -11,7 +11,7 @@ Install the needed npm packages and build the local development version:
 * `npm i grunt -g`
 * `grunt dev`
 
-Open the application [http://localhost:8081](http://localhost:8081)
+Open the application [http://localhost:8081/index-dev.html](http://localhost:8081/index-dev.html)
 
 ### Using the application
 

@@ -90,7 +90,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('build', ['clean', 'sass:min', 'shell:webpack']);
+    grunt.registerTask('build', ['clean', 'sass:dev', 'copy', 'shell:webpack']);
     grunt.registerTask('default', ['build']);
     grunt.registerTask('dev', ['clean', 'sass:dev', 'copy', 'shell:devServer']);
     grunt.registerTask('checkStyle', ['jscs', 'eslint']);
