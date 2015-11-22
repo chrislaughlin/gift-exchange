@@ -8,15 +8,18 @@ class Main extends React.Component {
     }
     getMatch() {
         request
-            .get('/get-match')
+            .post('/get-match')
+            .set('Content-Type', 'application/json')
+            .send(JSON.stringify({
+                email: this.refs.email.getValue(),
+                password: this.refs.password.getValue()
+            }))
             .end(this.getMatchHandleRequest.bind(this));
     }
 
     getMatchHandleRequest = (err, res) => {
-        if (!err) {
-            console.log(res);
-            this.setState({showDialogConfirm: true});
-        }
+        this.setState({returnMessage: res.text});
+        this.setState({showDialogConfirm: true});
     };
 
     closeDialog() {
@@ -29,16 +32,16 @@ class Main extends React.Component {
                     <CardTitle title="Get Match" subtitle="Matches will be ready one all entries are collected"/>
                     <CardActions>
                         <TextField
-                            hintText="Email" />
+                            hintText="Email" ref='email'/>
                         <TextField
                             hintText="Password"
-                            floatingLabelText="Password"
+                            ref='password'
                             type="password" />
                     </CardActions>
                     <RaisedButton label="Get Match" secondary={true} onClick={this.getMatch.bind(this)}/>
                 </Card>
                 <Dialog
-                    title="Your match is not ready please try again later"
+                    title={this.state.returnMessage}
                     open={this.state.showDialogConfirm}>
                     <RaisedButton label="Okay" primary={true}  onClick={this.closeDialog.bind(this)}/>
                 </Dialog>

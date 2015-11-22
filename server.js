@@ -11,6 +11,14 @@ var SignupPerson = mongoose.Schema({
     password: String
 });
 var SignUp = mongoose.model('gift-exchange-people', SignupPerson);
+var MatchPerson = mongoose.Schema({
+    email: String,
+    name: String,
+    password: String,
+    matchedName: String,
+    matchedEmail: String
+});
+var Match = mongoose.model('gift-exchange-mixed', SignupPerson);
 //Express
 var app = express();
 var bodyParser = require('body-parser');
@@ -29,7 +37,20 @@ app.post('/sign-up', function(req, res) {
 });
 
 app.use('/get-match', function(req, res) {
-    res.send('test match');
+    //First check they have singed up
+    SignUp.find({email: req.body.email}, function(err, signUpResults) {
+        if (signUpResults.length === 0) {
+            res.send('You must sign up before you can get matches');
+        } else {
+            Match.find({email: req.body.email, password: req.body.password}, function(err, matchResults) {
+                if (matchResults.length === 0) {
+                    res.send('The email or password you provided did not match or the matches are not ready yet.');
+                } else {
+                    res.send(matchResults[0]);
+                }
+            })
+        }
+    });
 });
 
 

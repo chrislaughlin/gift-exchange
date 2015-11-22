@@ -27,10 +27,6 @@ class Main extends React.Component {
         this.setState({showDialogConfirm: false});
     }
 
-    renderResponceMessage() {
-        return <span>{this.state.returnMessage}</span>
-    }
-
     render() {
         return (
             <div className='sign-up-card'>
