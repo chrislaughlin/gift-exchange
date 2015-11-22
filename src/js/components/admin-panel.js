@@ -8,7 +8,7 @@ class Main extends React.Component {
     }
     buildMatches() {
         request
-            .post('/buid-matches')
+            .post('/build-matches')
             .set('Content-Type', 'application/json')
             .send(JSON.stringify({
                 email: this.refs.email.getValue(),
