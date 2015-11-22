@@ -29,9 +29,5 @@ nohup.out
 dist
 public
 
-# Config Files
-config
-
-
 # React temp
 tmp
