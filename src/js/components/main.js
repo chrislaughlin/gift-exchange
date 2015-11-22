@@ -4,11 +4,6 @@ import GetMatchCard from 'components/get-match-card';
 import {CardMedia, CardTitle} from 'material-ui';
 
 class Main extends React.Component {
-    componentWillMount() {
-        this.state = {
-
-        }
-    }
     render() {
         return (
             <div className='main-content'>
