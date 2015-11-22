@@ -18,7 +18,7 @@
         "build": "webpack --progress --profile --colors",
         "watch": "webpack-dev-server --hot --inline --progress --colors",
         "test": "karma start",
-        "postinstall": "grunt build"
+        "postinstall": "npm install grunt && grunt build"
     },
     "license": "MIT",
     "dependencies": {
