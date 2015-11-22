@@ -27,7 +27,7 @@ class Main extends React.Component {
         return (
             <div className='sign-up-card'>
                 <Card initiallyExpanded={true} style={{marginTop: '30px'}}>
-                    <CardTitle title="SignUp" subtitle="Sign up for the gift exchange"/>
+                    <CardTitle title="Sign Up" subtitle="Sign up for the gift exchange"/>
                     <CardText>
                         To sign up for the gift exchange enter your email and password below.
                     </CardText>
@@ -38,8 +38,8 @@ class Main extends React.Component {
                             hintText="Password"
                             floatingLabelText="Password"
                             type="password" />
-                        <RaisedButton label="SignUp" primary={true}  onClick={this.signUp.bind(this)}/>
                     </CardActions>
+                    <RaisedButton label="SignUp" primary={true}  onClick={this.signUp.bind(this)}/>
                 </Card>
                 <Dialog
                     title="You have been signed up, please check back later for your match"
