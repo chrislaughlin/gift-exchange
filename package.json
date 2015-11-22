@@ -3,6 +3,10 @@
     "version": "0.0.1",
     "description": "Starter kit for ReactJS applications using Alt flux",
     "main": "index.js",
+    "engines": {
+        "node": "4.1.1",
+        "npm": "2.1.x"
+    },
     "keywords": [
         "react",
         "alt",
@@ -13,7 +17,8 @@
     "scripts": {
         "build": "webpack --progress --profile --colors",
         "watch": "webpack-dev-server --hot --inline --progress --colors",
-        "test": "karma start"
+        "test": "karma start",
+        "postinstall": "grunt build"
     },
     "license": "MIT",
     "dependencies": {
