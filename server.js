@@ -3,9 +3,20 @@
 var path = require('path');
 var express = require('express');
 var mongoose = require('mongoose');
-var app = express();
 var publicPath = __dirname + '/public';
+//Express
+var app = express();
 app.use(express.static(publicPath));
+app.use('/sign-up', function(req, res) {
+    res.send('test sign-up');
+});
+
+app.use('/get-match', function(req, res) {
+    res.send('test match');
+});
+
+
+//MongoDB
 mongoose.connect(require('./config/mongo').db);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

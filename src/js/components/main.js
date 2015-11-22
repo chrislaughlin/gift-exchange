@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpCard from 'components/signup-card';
+import SignUpCard from 'components/signUp-card';
 import GetMatchCard from 'components/get-match-card';
 import {CardMedia, CardTitle} from 'material-ui';
 
