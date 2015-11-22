@@ -35,7 +35,7 @@ class Main extends React.Component {
                             floatingLabelText="Password"
                             type="password" />
                     </CardActions>
-                    <RaisedButton label="Get Match" primary={true} onClick={this.getMatch.bind(this)}/>
+                    <RaisedButton label="Get Match" secondary={true} onClick={this.getMatch.bind(this)}/>
                 </Card>
                 <Dialog
                     title="Your match is not ready please try again later"

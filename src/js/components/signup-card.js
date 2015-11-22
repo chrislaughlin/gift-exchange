@@ -39,7 +39,7 @@ class Main extends React.Component {
                             floatingLabelText="Password"
                             type="password" />
                     </CardActions>
-                    <RaisedButton label="SignUp" primary={true}  onClick={this.signUp.bind(this)}/>
+                    <RaisedButton label="SignUp" secondary={true}  onClick={this.signUp.bind(this)}/>
                 </Card>
                 <Dialog
                     title="You have been signed up, please check back later for your match"
